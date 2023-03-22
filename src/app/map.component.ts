@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, ViewChildren } from '@angular/core';
-import { map } from 'rxjs';
 
 @Component({
 	selector: 'map-view',
@@ -7,12 +6,11 @@ import { map } from 'rxjs';
 	styleUrls: ["map.component.scss"]
 })
 export class MapComponent implements AfterViewInit {
-	
-	@ViewChildren("") wawa;
 	ngAfterViewInit(): void {
+		let selected_item: SVGPathElement;
 		let pathList = document.querySelectorAll("path")
 		let nameGroup = document.getElementById("text")
-		let mapSvg = document.getElementById("map")
+		//let mapSvg = document.getElementById("map")
 
 		pathList?.forEach(element => {
 			element.addEventListener("mouseover", function () {
@@ -22,6 +20,10 @@ export class MapComponent implements AfterViewInit {
 				element.style.fill = "";
 			});
 			element.addEventListener('click', function (){
+				if(element !== selected_item)
+				{
+
+				}
 				element.style.fill = "green";
 				nameGroup?.setAttribute("visibility", "hidden");
 				pathList?.forEach(path => {
@@ -30,6 +32,7 @@ export class MapComponent implements AfterViewInit {
 						path.setAttribute("visibility", "hidden");
 					}
 				});
+				selected_item = element;
 			});
 		});
 	}
