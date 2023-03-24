@@ -1,15 +1,42 @@
+
 <div class="header">
-    <img src="assets/jo.ico" alt="logo" class="header-logo">
+	<img src="assets/jo.ico" alt="logo" class="header_logo">
 </div>
 
-
+<!--
 <div class="navbar-slider" [class.navbar-slide-in]="navbarShow">
-    <div class="navbar-opener" (click)="navbarShow = !navbarShow">
-    <button class="nav-btn">≡</button>
+	<div class="navbar-opener" (click)="navbarShow = !navbarShow">
+	<button class="nav-btn">≡</button>
 </div>
- 
-    <div class="navbar-content">
-      <h2>Navigation</h2>
-      <div>Hello</div>
-      <div>Placeholder</div>      
+-->
+<div class="sliding_pane" [@openClosePane]="visible" >
+	<button class="button" id="pane_btn" (click)="onBtnClick">{{symbol}}</button>
+	
+	<nav class="sliding_pane_content">
+		<ul>
+			<li>0</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+			<li>14</li>
+			<li>15</li>
+			<li>16</li>
+			<li>17</li>
+			<li>18</li>
+			<li>19</li>
+			<li>20</li>
+		</ul>
+	</nav>
 </div>
+
+

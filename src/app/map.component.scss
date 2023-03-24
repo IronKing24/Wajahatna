@@ -1,13 +1,4 @@
-#map{
-	pointer-events: all;
-	position:relative;
-	top: 50%;
-	left: 50%;
-	height: 100%;
-	width: 100%;
-	max-width: 99%;
-	max-height: 99%;
-}
+
 
 text{
 	font-style:normal;
@@ -23,9 +14,14 @@ text{
 	fill-opacity:1;
 	stroke:none;
 	stroke-width:1;
-	stroke-dasharray:none
+	stroke-dasharray:none;
+	user-select:none;
+	pointer-events: none;
 }
 
+svg {
+	border: 1px solid #aaa;
+}
 //xml:space="preserve"
 //font-style:normal;
 //font-variant:normal;
