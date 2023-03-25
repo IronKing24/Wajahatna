@@ -9,10 +9,10 @@
 	<button class="nav-btn">≡</button>
 </div>
 -->
-<div class="sliding_pane" [@openClosePane]="visible" >
-	<button class="button" id="pane_btn" (click)="onBtnClick">{{symbol}}</button>
+<div class="side_panel" [@openClosePane]="visible" >
+	<button class="button" id="side_panel_btn" (click)="onBtnClick()">{{symbol}}</button>
 	
-	<nav class="sliding_pane_content">
+	<nav class="side_panel_content">
 		<ul>
 			<li>0</li>
 			<li>1</li>
