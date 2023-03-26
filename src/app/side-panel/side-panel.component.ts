@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 
 
 @Component({
-	selector: 'side-panel',
-	templateUrl: './sidepanel.component.html',
-	styleUrls: ['./sidepanel.component.scss'],
+	selector: 'app-side-panel',
+	templateUrl: './side-panel.component.html',
+	styleUrls: ['./side-panel.component.scss'],
 	animations: [
 		trigger("openClosePane",[
 			state("false", style({ 

@@ -1,15 +1,22 @@
-import { Component, AfterViewInit, ViewChildren } from '@angular/core';
+import { Component, AfterViewInit, ViewChildren, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-	selector: 'map-view',
+	selector: 'app-map',
 	templateUrl: './map.component.svg',
 	styleUrls: ["map.component.scss"]
 })
 export class MapComponent implements AfterViewInit {
-	ngAfterViewInit(): void {
-		let selected_item: SVGPathElement;
+
+	@Input() location:string | undefined;
+	petra = "petra"
+	constructor(private router: Router)
+	{
+	}
+
+	ngAfterViewInit(): void { 
 		let pathList = document.querySelectorAll("path")
-		let nameGroup = document.getElementById("text")
+		//let nameGroup = document.getElementById("text")
 		//let mapSvg = document.getElementById("map")
 
 		pathList?.forEach(element => {
@@ -20,19 +27,16 @@ export class MapComponent implements AfterViewInit {
 				element.style.fill = "";
 			});
 			element.addEventListener('click', function (){
-				if(element !== selected_item)
-				{
-
-				}
 				element.style.fill = "green";
-				nameGroup?.setAttribute("visibility", "hidden");
-				pathList?.forEach(path => {
-					if(element !== path)
-					{
-						path.setAttribute("visibility", "hidden");
-					}
-				});
-				selected_item = element;
+				console.log(element.id)
+				//nameGroup?.setAttribute("visibility", "hidden");
+				//pathList?.forEach(path => {
+				//	if(element !== path)
+				//	{
+				//		path.setAttribute("visibility", "hidden");
+				//		
+				//	}
+				//});
 			});
 		});
 	}
