@@ -28,7 +28,7 @@ export class MapComponent implements AfterViewInit {
 			});
 			element.addEventListener('click', function (){
 				element.style.fill = "green";
-				console.log(element.id)
+				
 				//nameGroup?.setAttribute("visibility", "hidden");
 				//pathList?.forEach(path => {
 				//	if(element !== path)
