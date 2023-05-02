@@ -8,7 +8,6 @@ import { MapComponent } from './map/map.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 import { HeaderBannerComponent } from './header-banner/header-banner.component';
 import { PageComponent } from './page/page.component';
-import { CityComponent } from './city/city.component';
 
 @NgModule({
 	declarations: [
@@ -16,8 +15,7 @@ import { CityComponent } from './city/city.component';
 		MapComponent,
 		SidePanelComponent,
 		HeaderBannerComponent,
-  PageComponent,
-  CityComponent
+  		PageComponent
 	],
 	imports: [
 		BrowserModule,

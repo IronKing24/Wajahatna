@@ -24,8 +24,7 @@ export class SidePanelComponent {
 
 	public onBtnClick(): void
 	{
-		console.log("clicked!!!")
 		this.visible = !this.visible;
-		this.symbol = (this.visible) ? "x" : "≡";
+		this.symbol = this.visible ? "x" : "≡";
 	}
 }
