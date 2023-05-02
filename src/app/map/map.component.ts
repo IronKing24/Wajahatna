@@ -10,6 +10,9 @@ import {D3ZoomEvent, select, Selection, zoom, ZoomBehavior, zoomIdentity, ZoomTr
 })
 export class MapComponent implements AfterViewInit {
 	
+	private width : number = 500;
+	private hight : number = 500;
+
 	public selected: string | undefined;
 
 	@ViewChild('map')
