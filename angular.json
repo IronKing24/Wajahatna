@@ -27,11 +27,13 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/assets",
-			{
-				"glob": "./*/*.html",
-				"input": "src/assets/articles/",
-				"output": "src/assets/articles/"
-			}
+              "src/pages",
+              "src/assets/icons",
+			        {
+			        	"glob": "./*.html",
+			        	"input": "pages",
+			        	"output": "pages"
+			        }
             ],
             "styles": [
               "src/styles.scss"
@@ -93,7 +95,8 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets"
+              "src/assets",
+              "src/assets/icons"
             ],
             "styles": [
               "src/styles.scss"

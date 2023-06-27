@@ -1,0 +1,44 @@
+{
+    "type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"geometry": {
+			  "type": "Point",
+			  "coordinates": [35.93938578343658, 31.951752637897215]
+			},
+			"properties": {
+				"name": "Roman Theatre",
+				"city":	"Amman",
+				"type": "Landmark",
+				"URL": 	"RomanTheatre"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+			  "type": "Point",
+			  "coordinates": [35.49849030562923, 31.55384447858728]
+			},
+			"properties": {
+				"name": "Dead Sea",
+				"city":	"Madaba",
+				"type": "Feature",
+				"URL": 	"DeadSea"
+			}
+		},
+		{
+			"type": "Feature",
+			"geometry": {
+			  "type": "Point",
+			  "coordinates": [35.44195207885375, 30.328651648124787]
+			},
+			"properties": {
+				"name": "Petra",
+				"city":	"Ma'an",
+				"type": "Landmark",
+				"URL": 	"petra"
+			}
+		}
+    ]
+}

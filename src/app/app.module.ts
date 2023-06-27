@@ -4,24 +4,24 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
-import { MapComponent } from './map/map.component';
-import { SidePanelComponent } from './side-panel/side-panel.component';
-import { HeaderBannerComponent } from './header-banner/header-banner.component';
-import { PageComponent } from './page/page.component';
+import { MapComponent } from './components/map/map.component';
+import { SidePanelComponent } from './components/side-panel/side-panel.component';
+import { PageComponent } from './components/page/page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		MapComponent,
 		SidePanelComponent,
-		HeaderBannerComponent,
   		PageComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		BrowserModule,
-		BrowserAnimationsModule 
+		BrowserAnimationsModule,
+		HttpClientModule
 	],
 	providers: [],
 	bootstrap: [
