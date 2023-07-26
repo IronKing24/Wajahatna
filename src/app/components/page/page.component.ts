@@ -1,26 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, SecurityContext, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser'
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
 	selector: 'app-page',
 	templateUrl: './page.component.html',
 	styleUrls: ['./page.component.scss']
 })
-export class PageComponent {
-	Html: SafeHtml | undefined;
+export class PageComponent implements AfterViewInit{
+	
+	@ViewChild("Container") 
+	content!: ElementRef<HTMLElement>;
 
 	constructor(
-		public url:ActivatedRoute,
+		public route:ActivatedRoute,
+		private http: HttpClient,
 		public sanitizer:DomSanitizer
 	)
 	{}
 
-	ngOnInit()
-	{
-		console.log(this.url.toString());
-		this.Html = this.sanitizer.bypassSecurityTrustHtml(this.url.toString());
-		
-		
+	ngAfterViewInit()
+	{ 
+		this.http.get("assets/" + this.route.snapshot.url.join('/') + ".html",
+			{ responseType: 'text' })
+		.subscribe(data => {
+			const cleanData =  this.sanitizer.sanitize(SecurityContext.HTML, data)
+			if(cleanData == null)
+			{
+				this.content.nativeElement.innerHTML = "<h1>404 Page Not Found</h1>"
+			}
+			else
+			{
+				this.content.nativeElement.innerHTML = cleanData;
+			}
+			
+		});
 	}
 }

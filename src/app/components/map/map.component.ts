@@ -84,12 +84,12 @@ export class MapComponent implements AfterViewInit {
 		.enter()
 		.filter((d : Feature<Point>) => d.properties?.['city'] === element.id)
 		.append("use")
-		.attr("class", "pin")
-		.attr("href", "#pin")
+		.attr("class", "nomral_pin")
+		.attr("href", "#normal_pin")
 		.attr("transform", (d : Feature<Point>) =>
-			 `translate(${this.projection(d.geometry.coordinates as [number, number])}), scale(.1)`
+			`translate(${this.projection(d.geometry.coordinates as [number, number])}), scale(.1)`
 		)
-		.on("click", (e: MouseEvent, d : Feature<Point>) =>
+		.on("click", (_e: MouseEvent, d : Feature<Point>) =>
 			this.router.navigate(["pages", d.properties?.["city"], d.properties?.["URL"]])
 		)
 	}

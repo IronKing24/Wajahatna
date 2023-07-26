@@ -9,6 +9,12 @@ import { SidePanelComponent } from './components/side-panel/side-panel.component
 import { PageComponent } from './components/page/page.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatIconModule} from '@angular/material/icon'; 
+
+
 @NgModule({
 	declarations: [
 		AppComponent,
@@ -21,7 +27,12 @@ import { HttpClientModule } from '@angular/common/http';
 		AppRoutingModule,
 		BrowserModule,
 		BrowserAnimationsModule,
-		HttpClientModule
+		HttpClientModule,
+		
+		MatToolbarModule,
+		MatSidenavModule,
+		MatButtonModule,
+		MatIconModule
 	],
 	providers: [],
 	bootstrap: [
