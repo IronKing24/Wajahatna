@@ -9,7 +9,7 @@
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "dev:ssr": "ng run Wajahatna:serve-ssr",
-    "build:prod": "ng build --configuration production --base-href https://IronKing24.github.io/angular-github-actions/",
+    "build:prod": "ng build --configuration production --base-href https://IronKing24.github.io/wajahatna/",
     "serve:ssr": "node dist/Wajahatna/server/main.js",
     "build:ssr": "ng build && ng run Wajahatna:server",
     "prerender": "ng run Wajahatna:prerender"
