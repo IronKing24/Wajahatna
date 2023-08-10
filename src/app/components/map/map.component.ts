@@ -32,19 +32,19 @@ export class MapComponent implements AfterViewInit {
 	private mapSelection !: Selection<SVGGElement, unknown, null, any>;
 
 	private zoomBehavior : ZoomBehavior<SVGSVGElement, unknown> = zoom<SVGSVGElement, unknown>()
-	.on("zoom", (e) => this.mapSelection?.attr("transform", e.transform))
-	.scaleExtent([1,8]);
+		.on("zoom", (e:any) => this.mapSelection?.attr("transform", e.transform))
+		.scaleExtent([1,8]);
 
 	private projection : GeoProjection = geoMercator()
-	.fitExtent(this.svgDimensions, this.jorGeoJson)
+		.fitExtent(this.svgDimensions, this.jorGeoJson)
 	private path : GeoPath = geoPath()
-	.projection(this.projection);
+		.projection(this.projection);
 	
 
 	constructor(
 		private router: Router,
 		private changedetector: ChangeDetectorRef,
-		public url:ActivatedRoute
+		public url: ActivatedRoute
 	)
 	{}
 
@@ -75,23 +75,25 @@ export class MapComponent implements AfterViewInit {
 
 		await this.router.navigate([`/map`], { fragment: element.id });
 		
-		this.canvasSelection?.transition().duration(750).call(this.zoomBehavior.transform, new ZoomTransform(scale, this.canvasDimensions[0]/2 - scale * x, this.canvasDimensions[1]/2 - scale * y));
+		this.canvasSelection?.transition()
+			.duration(750)
+			.call(this.zoomBehavior.transform, new ZoomTransform(scale, this.canvasDimensions[0]/2 - scale * x, this.canvasDimensions[1]/2 - scale * y));
 		
 		//fill with markers		
 		let pointsSelection = select<SVGGElement, Feature<Point>>(this.points_element.nativeElement);
 
 		pointsSelection.selectAll("point").data(this.points.features)
-		.enter()
-		.filter((d : Feature<Point>) => d.properties?.['city'] === element.id)
-		.append("use")
-		.attr("class", "nomral_pin")
-		.attr("href", "#normal_pin")
-		.attr("transform", (d : Feature<Point>) =>
-			`translate(${this.projection(d.geometry.coordinates as [number, number])}), scale(.1)`
-		)
-		.on("click", (_e: MouseEvent, d : Feature<Point>) =>
-			this.router.navigate(["pages", d.properties?.["city"], d.properties?.["URL"]])
-		)
+			.enter()
+			.filter((d : Feature<Point>) => d.properties?.['city'] === element.id)
+			.append("use")
+			.attr("class", "nomral_pin")
+			.attr("href", "#normal_pin")
+			.attr("transform", (d : Feature<Point>) =>
+				`translate(${this.projection(d.geometry.coordinates as [number, number])}), scale(.1)`
+			)
+			.on("click", (_e: MouseEvent, d : Feature<Point>) =>
+				this.router.navigate(["pages", d.properties?.["city"], d.properties?.["URL"]])
+			);
 	}
 
 	onClose()
