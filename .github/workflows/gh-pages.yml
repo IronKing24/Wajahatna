@@ -28,8 +28,8 @@ jobs:
 
     - name: Deploy
       if: success()
-      uses: peaceiris/actions-gh-pages@v3
+      uses: IronKing24/Wajahatna@v0.0.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist/angular-github-actions
+        publish_dir: dist/wajahatna
         enable_jekyll: true
