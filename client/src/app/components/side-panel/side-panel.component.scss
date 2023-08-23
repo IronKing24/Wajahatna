@@ -1,0 +1,28 @@
+.side_panel {
+	position: absolute;
+	box-sizing: content-box;
+	height: 100%;
+	width: 20%;
+	z-index: 1;
+	background-color: #145c96;
+}
+
+#side_panel_btn{
+	position: relative;
+	font-size: x-large;
+	margin-left: 91%;
+	background-color: transparent;
+	border: transparent;
+	cursor: pointer;
+}
+
+.side_panel_content {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	flex-direction: column;
+	color: white;
+	font-size: 16px;
+	padding: 16px;
+	height: 100%;
+}
