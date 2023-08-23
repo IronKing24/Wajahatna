@@ -1,16 +1,5 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
-#/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
 # IDEs and editors
 .idea/
 .project
@@ -19,6 +8,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.fleet
 
 # Visual Studio Code
 .vscode/*
@@ -28,15 +18,46 @@ yarn-error.log
 !.vscode/extensions.json
 .history/*
 
+# Angular Compiled output
+#/dist
+client/tmp
+client/out-tsc
+client/bazel-out
+
+# Node
+client/node_modules
+client/npm-debug.log
+client/yarn-error.log
+
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+client/.angular/cache
+client/.sass-cache/
+client/connect.lock
+client/coverage
+client/libpeerconnection.log
+client/testem.log
+client/typings
+client/dist
+
+#laravel
 
 # System files
 .DS_Store
 Thumbs.db
+
+server/.phpunit.cache
+server/node_modules
+server/public/build
+server/public/hot
+server/public/storage
+server/storage/*.key
+server/vendor
+server/.env
+server/.env.backup
+server/.env.production
+server/.phpunit.result.cache
+server/Homestead.json
+server/Homestead.yaml
+server/auth.json
+server/npm-debug.log
+server/yarn-error.log
