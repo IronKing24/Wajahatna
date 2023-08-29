@@ -1,19 +1,19 @@
 <mat-sidenav-container fullscreen>
-    <mat-sidenav position="start" role="directory" mode="over">
-        <button>
-            <mat-icon (click)="sidenavContainer.close()">close</mat-icon>
-        </button>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar>
-            <mat-toolbar-row>
-                <button>
-                    <mat-icon (click)="sidenavContainer.open()">menu</mat-icon>
-                </button>
-                <img src="assets/icons/jo.ico" alt="logo" class="header_logo">
-            </mat-toolbar-row>
-        </mat-toolbar>
+  <mat-sidenav position="start" role="directory" mode="over">
+      <button>
+          <mat-icon (click)="sidenavContainer.close()">close</mat-icon>
+      </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <mat-toolbar>
+          <mat-toolbar-row>
+              <button>
+                  <mat-icon (click)="sidenavContainer.open()">menu</mat-icon>
+              </button>
+              <img src="favicon.ico" alt="logo" class="header_logo">
+          </mat-toolbar-row>
+      </mat-toolbar>
 
-        <router-outlet fullscreen></router-outlet>
-    </mat-sidenav-content>
+      <router-outlet fullscreen></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>

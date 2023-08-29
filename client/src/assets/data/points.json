@@ -5,7 +5,7 @@
 			"type": "Feature",
 			"geometry": {
 			  "type": "Point", 
-			  "coordinates": [35.764722, 32.381111]
+			  "coordinates": [32.380369124935065, 35.76374353835528]
 			},
 			"properties": {
 				"name": "Ajloun Forest Reserve",
@@ -18,7 +18,7 @@
 			"type": "Feature",
 			"geometry": {
 			  "type": "Point", 
-			  "coordinates": [36.815, 31.834167] 
+			  "coordinates": [31.83463630831996, 36.82044565396852] 
 			},
 			"properties": {
 				"name": "Azraq Wetland Reserve",
@@ -31,7 +31,7 @@
 			"type": "Feature",
 			"geometry": {
 			  "type": "Point", 
-			  "coordinates": [37.97369164989361, 32.645637165767745] 
+			  "coordinates": [32.61730448558478, 37.96152321529239] 
 			},
 			"properties": {
 				"name": "Burqu Nature Reserve",
