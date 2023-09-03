@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'; 
 import { Feature, FeatureCollection, Point, GeoJsonProperties, GeoJSON } from "geojson";
-import { map } from "rxjs";
+import { Observable, map } from "rxjs";
 
 @Injectable()
 export class LocationsService {
@@ -9,15 +9,20 @@ export class LocationsService {
     
     constructor(private http:HttpClient){}
 
-    getMap()
+    getMap(iso_name: string, level: number) : Observable<GeoJSON>
     {
-        return this.http.get<GeoJSON>('./assets/data/Country.json');
+        return this.http.get<GeoJSON>(`https://www.geoboundaries.org/api/current/gbOpen/${iso_name}/${level}/`);
     }
 
-    getLocations()//: Feature<Point, GeoJsonProperties>[] 
+    getReserves(): Observable<GeoJSON>
     {
         return this.http.get<GeoJSON>("./assets/data/points.json");
-        //return this.locations.features;
+        
+    }
+
+    getHeritage(): Observable<GeoJSON>
+    {
+        return this.http.get<GeoJSON>("./assets/data/points.json");
     }
 
     filter(type: string, value: string)//: Feature<Point, GeoJsonProperties>[] 

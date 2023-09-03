@@ -49,7 +49,7 @@
     
     <ng-template #citymap>
       <use class="city-map-symbol" [attr.href]="'#' + selected"></use>
-      <g #points_element id="points_element"></g>
+      <text #points_element id="points_element"></text>
     </ng-template>
 
     <ng-template #fullmap>
