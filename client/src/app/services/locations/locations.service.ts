@@ -9,7 +9,12 @@ export class LocationsService {
     
     constructor(private http:HttpClient){}
 
-    getMap(iso_name: string, level: number) : Observable<GeoJSON>
+    getWorldMap(level: number) : Observable<GeoJSON>
+    {
+        return this.http.get<GeoJSON>(`https://www.geoboundaries.org/api/current/gbOpen/${level}/`);
+    }
+
+    getCountryMap(iso_name: string, level: number) : Observable<GeoJSON>
     {
         return this.http.get<GeoJSON>(`https://www.geoboundaries.org/api/current/gbOpen/${iso_name}/${level}/`);
     }

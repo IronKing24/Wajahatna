@@ -29,7 +29,7 @@ export class MapComponent implements AfterViewInit {
 	private render_node !: Selection<SVGElement, unknown, HTMLElement, unknown>
 	private selected: string | null = null;
 	private jorGeoJson !: FeatureCollection<Polygon>
-	private points !: Feature<Point>[];
+	private points !: FeatureCollection<Point>;
 	
 	constructor(
 		private renderer: Renderer2,
@@ -39,7 +39,7 @@ export class MapComponent implements AfterViewInit {
 		private locations: LocationsService
 	)
 	{
-		this.locations.getMap().subscribe(d => this.jorGeoJson = d as FeatureCollection<Polygon>);
+		this.locations.getMap("jor", 0).subscribe(d => this.jorGeoJson = d as FeatureCollection<Polygon>);
 		this.locations.getLocations()
 		.pipe(map((d: GeoJSON)=> {return (d as FeatureCollection<Point>).features;}))
 		.subscribe(d => this.points = d);
@@ -62,7 +62,7 @@ export class MapComponent implements AfterViewInit {
 			this.change_detector.detectChanges();
 		});
 
-		this.render_node = select<SVGElement, unknown>(this.renderer.createElement("svg"));
+		this.render_node = select<SVGElement, unknown>(this.renderer.createElement("svg", "SVG"));
 
 	}
 
@@ -71,38 +71,38 @@ export class MapComponent implements AfterViewInit {
 		this.context2D = this.canvas_element.nativeElement.getContext("2d");
 	}
 
-	async onClick(e:Event)
-	{
-		//update map
-		const element = e.target as SVGGraphicsElement;
-
-		//calculate zoom factor
-		//const bb= element.getBBox(),
-		//x = bb.x + bb.width/2,
-		//y = bb.y + bb.height/2,
-		//scale = Math.max(1, Math.min(8, 1/Math.max(bb.width /this.canvasDimensions[0], bb.height/this.canvasDimensions[1])));
-
-		await this.router.navigate([`/map`], { fragment: element.id });
-		
-		//this.canvasSelection?.transition()
-		//	.duration(750)
-		//	.call(this.zoomBehavior.transform, new ZoomTransform(scale, this.canvasDimensions[0]/2 - scale * x, this.canvasDimensions[1]/2 - scale * y));
-		//
-		//fill with markers		
-		//const pointsSelection = select<SVGGElement, Feature<Point>>(this.points_element.nativeElement);
-
-		//pointsSelection.selectAll("point").data(this.points)
-		//	.enter()
-		//	.filter((d : Feature<Point>) => d.properties?.['city'] === element.id)
-		//	.append("tspan")
-		//	.attr("class", "material-icons")
-		//	.text("pin_drop")
-		//	.attr("x", (d : Feature<Point>) => (this.projection(d.geometry.coordinates as [number, number]))![1])
-		//	.attr("y", (d : Feature<Point>) => (this.projection(d.geometry.coordinates as [number, number]))![0])
-		//	.on("click", (_e: MouseEvent, d : Feature<Point>) =>
-		//		this.router.navigate(["pages", d.properties?.["URL"]])
-		//	);
-	}
+	//async onClick(e:Event)
+	//{
+	//	//update map
+	//	//const element = e.target as SVGGraphicsElement;
+//
+	//	//calculate zoom factor
+	//	//const bb= element.getBBox(),
+	//	//x = bb.x + bb.width/2,
+	//	//y = bb.y + bb.height/2,
+	//	//scale = Math.max(1, Math.min(8, 1/Math.max(bb.width /this.canvasDimensions[0], bb.height/this.canvasDimensions[1])));
+//
+	//	//await this.router.navigate([`/map`], { fragment: element.id });
+//
+	//	//this.canvasSelection?.transition()
+	//	//	.duration(750)
+	//	//	.call(this.zoomBehavior.transform, new ZoomTransform(scale, this.canvasDimensions[0]/2 - scale * x, this.canvasDimensions[1]/2 - scale * y));
+	//	//
+	//	//fill with markers		
+	//	//const pointsSelection = select<SVGGElement, Feature<Point>>(this.points_element.nativeElement);
+//
+	//	//pointsSelection.selectAll("point").data(this.points)
+	//	//	.enter()
+	//	//	.filter((d : Feature<Point>) => d.properties?.['city'] === element.id)
+	//	//	.append("tspan")
+	//	//	.attr("class", "material-icons")
+	//	//	.text("pin_drop")
+	//	//	.attr("x", (d : Feature<Point>) => (this.projection(d.geometry.coordinates as [number, number]))![1])
+	//	//	.attr("y", (d : Feature<Point>) => (this.projection(d.geometry.coordinates as [number, number]))![0])
+	//	//	.on("click", (_e: MouseEvent, d : Feature<Point>) =>
+	//	//		this.router.navigate(["pages", d.properties?.["URL"]])
+	//	//	);
+	//}
 
 	onClose()
 	{
